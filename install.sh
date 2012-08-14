@@ -9,6 +9,7 @@ INSTALL_ROUTINES=
 . nullib.cfg
 . lib.sh
 . dot/install.sh
+. kernel/install.sh
 
 for i in $INSTALL_ROUTINES; do
 	$i
