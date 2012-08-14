@@ -6,8 +6,6 @@
 
 INSTALL_ROUTINES=
 
-[ -z $DEST_DIR ] && DEST_DIR=~/
-
 . nullib.cfg
 . lib.sh
 . dot/install.sh
