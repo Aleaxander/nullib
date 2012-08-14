@@ -1,0 +1,41 @@
+set autochdir
+
+autocmd BufReadPre *.pdf set ro nowrap
+autocmd BufReadPost *.pdf silent %!pdftotext "%" -nopgbrk -layout -q -eol unix -
+autocmd BufWritePost *.pdf silent !rm -rf ~/PDF/%
+autocmd BufWritePost *.pdf silent !lp -s -d pdffg "%"
+autocmd BufWritePost *.pdf silent !until [ -e ~/PDF/% ]; do sleep 1; done
+autocmd BufWritePost *.pdf silent !mv ~/PDF/% %:p:h
+
+" vim -b : edit binary using xxd-format!
+augroup Binary
+	au!
+	au BufReadPre  *.bin let &bin=1
+	au BufReadPost *.bin if &bin | %!xxd
+	au BufReadPost *.bin set ft=xxd | endif
+	au BufWritePre *.bin if &bin | %!xxd -r
+	au BufWritePre *.bin endif
+	au BufWritePost *.bin if &bin | %!xxd
+	au BufWritePost *.bin set nomod | endif
+augroup END
+
+
+
+" Tlist configuration
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Show_One_File=1
+let Tlist_Auto_Highlight_tag=1
+let Tlist_winWidth=50
+map T :Tlist<CR>
+
+set keywordprg=sdcv
+
+
+" auto smartindent for C and CPP 
+autocmd BufReadPre *.c set smartindent
+autocmd BufReadPre *.h set smartindent
+autocmd BufReadPre *.cpp set smartindent
+autocmd BufReadPre *.hpp set smartindent
+
+" abbreviates 
+abbreviate RBme Reviewed-by: NULLIB_EMAIL_USER_NAME <NULLIB_EMAIL_ADDRESS>

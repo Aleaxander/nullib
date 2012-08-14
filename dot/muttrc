@@ -1,0 +1,105 @@
+set folder="/home/NULLIB_LINUX_USER_NAME/mail"
+
+# the inbox
+set spoolfile=/home/NULLIB_LINUX_USER_NAME/mail/inbox
+
+mailboxes "=inbox"
+
+# keep sent mails
+set copy=yes
+set record="/home/yliu/mail/sent"
+
+set realname="NULLIB_EMAIL_USER_NAME"
+set sendmail="/usr/bin/esmtp"
+set from="NULLIB_EMAIL_ADDRESS"
+
+# view html better
+auto_view text/html
+
+# --------------
+#    * sort * 
+# --------------
+#
+set sort=threads
+# sort them based on the time when you received them.
+set sort_aux=reverse-last-date-received
+#set sort_browser=date
+
+
+# automatically include a copy of the original message when you reply to a message
+set include=yes
+
+# This tells Mutt to beep when you receive a new message while your mailbox is open
+# set beep_new=yes
+#
+
+#
+# Check mail by 'G'
+#
+macro index G <shell-escape>'/usr/bin/checkmail'<enter> 'Checking new mails...'
+
+macro index M "T.*\n;WN" "Mark all messages as read"
+
+# ----------
+#  Alias
+# ---------
+
+alias me	NULLIB_EMAIL_USER_NAME	<NULLIB_EMAIL_ADDRESS>
+# mailing lists
+alias lkml 		<linux-kernel@vger.kernel.org>
+
+# ------------
+# Key binds
+# -----------
+#
+bind browser j next-line
+bind browser k previous-line
+
+
+# -------------
+# Color options 
+# ------------
+#
+# #Black Text on White Background
+# color hdrdefault black white
+# color quoted black white
+# color signature black white
+# color status white black
+# color indicator white black
+# color normal black white
+# #
+#
+# #White Text on Black Background
+# color hdrdefault white black
+# color quoted white black
+# color signature white black
+# color status black white
+# color indicator black white
+# color normal white black
+# #
+#
+# #White Text on Blue Background
+# color hdrdefault white blue
+# color quoted white blue
+# color signature white blue
+# color status yellow blue
+# color indicator yellow blue
+# color normal white blue
+# #
+#
+#Green Text on Black Background
+color hdrdefault green black
+color quoted green black
+color signature green black
+color status black green
+color indicator black green
+color normal green black
+# #
+#
+# #Amber Text on Black Background
+# color hdrdefault yellow black
+# color quoted yellow black
+# color signature yellow black
+# color status black yellow
+# color indicator black yellow
+# color normal yellow black
