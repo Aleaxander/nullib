@@ -1,0 +1,14 @@
+[user]
+	name = NULLIB_EMAIL_USER_NAME
+	email = NULLIB_EMAIL_ADDRESS
+[core]
+	editor = vim
+[color]
+	ui = true
+[alias]
+	st = status
+	co = checkout
+	ls = ls-files
+	fp = format-patch
+	fph = format-patch HEAD~
+	bl = blame
