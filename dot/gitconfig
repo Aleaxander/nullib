@@ -12,3 +12,14 @@
 	fp = format-patch
 	fph = format-patch HEAD~
 	bl = blame
+[sendemail]
+	confirm = never
+	from = NULLIB_EMAIL_USER_NAME <NULLIB_EMAIL_ADDRESS>
+	smtpencryption = tls
+	# gmail by default
+	smtpserver = smtp.gmail.com
+	smtpserverport = 587
+	smtpuser = NULLIB_EMAIL_ADDRESS
+	# put your password here if you don't want to
+	# repeat to type it every time you send patch
+	# smtppass =
