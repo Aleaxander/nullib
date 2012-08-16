@@ -10,6 +10,7 @@ INSTALL_ROUTINES=
 . lib.sh
 . dot/install.sh
 . kernel/install.sh
+. scripts/install.sh
 
 for i in $INSTALL_ROUTINES; do
 	$i
