@@ -1,0 +1,17 @@
+#! /bin/sh
+#Add current user into /etc/sudoers.
+
+echo
+echo " About to check the current user is a sudoer or not; If not, add it"
+echo " Root password is needed "
+echo
+
+su -c '(
+if grep -q "^\<$USER\> *ALL" /etc/sudoers
+then
+	echo "$USER is already a sudoer."
+else
+	#echo "$USER ALL=(ALL) ALL" >> /etc/sudoers
+	echo "Now $USER is a sudoer."
+fi
+)'
