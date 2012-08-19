@@ -9,7 +9,7 @@ echo
 su -c '(
 if grep -q "^\<$USER\>.*ALL" /etc/sudoers
 then
-	echo "$USER is already a sudoer."
+	echo " $USER is already a sudoer."
 else
 	echo "$USER ALL=(ALL) ALL" >> /etc/sudoers
 	echo " Now $USER is a sudoer."

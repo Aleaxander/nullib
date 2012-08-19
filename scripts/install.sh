@@ -12,8 +12,10 @@ function execute_scripts()
 		[ $i = "install.sh" ] && continue
 		[ ! -x $i ] && echo " [PASS] $i" && continue
 
+		echo " [RUN] $i"
 		./$i
-		echo " [DONE $i]"
+		echo " [DONE]"
+		echo
 	done
 	cd ..
 }
