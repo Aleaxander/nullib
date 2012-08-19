@@ -6,7 +6,7 @@
 
 INSTALL_ROUTINES=
 
-. nullib.cfg
+. nullib.cfg 2>/dev/null || { echo " nullib.cfg: no such file";  exit 1; }
 . lib.sh
 . dot/install.sh
 . kernel/install.sh
